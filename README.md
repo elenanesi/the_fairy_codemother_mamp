@@ -1,4 +1,4 @@
-# the_fairy_codemother (web data playground)
+# the_fairy_codemother_mamp (web data playground)
 automation to create a realistic GA4 demo data set 
 
 # INTRO
