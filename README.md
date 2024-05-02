@@ -20,32 +20,15 @@ Currently, this is (80, 100) for week days, and (150, 200) for week ends (fixed 
 
 # INSTALLATION
 
-To make this script work, you'll need to have 
+1) To make this script work, you'll need to have
 
-1) A localhost website to navigate. 
-	The script expects a link with text "Yes" in all pages; An "Add to cart" button on product pages, and a "Purchase" link in the checkout page
-	The website used to develop this tool is available here: https://github.com/elenanesimm/demo_website
+- A localhost website to navigate. The script expects a link with text "Yes" in all pages; An "Add to cart" button on product pages, and a "Purchase" link in the checkout page The website used to develop this tool is available here: https://github.com/elenanesi/web_playground_flask
 
-2) install the browser drivers on your machine; move them in /usr/local/bin/ (or wherever your terminal has access to, but then remember to update demo_input.json)
-	NOTE: 
-	- the version of the driver should match the version on the browser you have installed.
-	- ensure they can be opened (might need explicit admin access)
-	- might need to quarantine drivers on MAC: xattr -d com.apple.quarantine chromedrive
-	
-	you can get the drivers here: 
-	- https://googlechromelabs.github.io/chrome-for-testing/
-	- https://github.com/mozilla/geckodriver/releases
+2) install the following: (you can use pip install -r requirements.txt)
 
-	The location of the drivers can be changed from the demo_input.json file.
-	The default value is currently defined in the global vars of /elena_utils/utils.py:
-	- CHROME_DRIVER = '/usr/local/bin/chromedriver' 
-	- FIREFOX_DRIVER = '/usr/local/bin/geckodriver' 
-
-3) install:
-	- python (eg: brew install python)
-	- open ssl (eg: brew install openssl)
-	- selenium (pip install selenium)
-
+- python (eg: brew install python)
+- selenium (pip install selenium)
+- webdriver (pip install webdriver_manager)
 
 # CONFIGURATION
 

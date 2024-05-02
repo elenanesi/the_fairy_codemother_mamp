@@ -1,13 +1,11 @@
 {
     "BASE_URL" : "http://www.thefairycodemother.com/web_playground/",
     "SCRIPT_PATH": "/Users/elenanesi/Workspace/user-simulation/",
-    "GA_MEASUREMENT_ID" : "ABCDEFGH", 
+    "GA_MEASUREMENT_ID" : "1L1YW7SZFP", 
     "MAX_CLIENT_IDS": 500,
     "SHORT_TIME": 3,
     "LONG_TIME": 5,
     "CLIENT_IDS_PATH": "/Applications/MAMP/htdocs/web_playground/client_ids.json",
-    "CHROME_DRIVER" : "/Users/elenanesi/Workspace/user-simulation/elena_util/chromedriver",
-    "FIREFOX_DRIVER" : "/Users/elenanesi/Workspace/user-simulation/elena_util/geckodriver",
     "page_categories": ["home", "category", "product"],
     "product_categories": ["apples", "kiwis", "oranges"],
     "product_ids":["1","2","3"],
@@ -19,8 +17,8 @@
     },
 
     "browser_distribution": {
-        "chrome": 70,
-        "firefox": 30
+        "chrome": 50,
+        "firefox": 50
     },
 
     "source_distribution": {

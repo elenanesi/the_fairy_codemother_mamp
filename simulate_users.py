@@ -13,7 +13,7 @@ SHORT_TIME = 5
 LONG_TIME = 7
 # where to save client ids
 CLIENT_IDS_PATH = '/Applications/MAMP/htdocs/demo_project/client_ids.json'
-#page category options
+# page category options
 page_categories = ["home", "category", "product"]
 # product category options
 product_categories = ["apples", "kiwis", "oranges"]
@@ -29,9 +29,7 @@ NR_USERS = 250
 BASE_URL = "http://127.0.0.1/"
 # helper var to hold demo_input.json content
 demo_input = {}
-# location of browser drivers
-CHROME_DRIVER = '/usr/local/bin/chromedriver' 
-FIREFOX_DRIVER = '/usr/local/bin/geckodriver'
+
 ga_cookie_name = ""
 
 # --- END OF GLOBAL VARS WITH DEFAULT VALUES ---- #
@@ -105,13 +103,8 @@ def execute_purchase_flow(browser, source, device, consent_level, demo_input, he
 	## TO ADD: PURCHASE VERSION: NEW/RETURNING CLIENT, FROM BEGINNING OR FROM ADD TO CART OR OTHER?
     print(color_text(f"-- {process_number}: execute_purchase_flow fired", "green")) 
 
-    # Define browser; 
-    if browser == "firefox":
-        DRIVER = FIREFOX_DRIVER
-    else:
-        DRIVER = CHROME_DRIVER
-
-    driver = browser_setup(browser, device, headless, process_number, DRIVER)
+    # Setup browser; 
+    driver = browser_setup(browser, device, headless, process_number)
 
     # Setup of utms
     utm_parameters = ""
@@ -171,12 +164,8 @@ def execute_browsing_flow(browser, source, device, consent_level, demo_input, he
     client_ids = []
 
     # Define browser; 
-    if browser == "firefox":
-        DRIVER = FIREFOX_DRIVER
-    else:
-        DRIVER = CHROME_DRIVER
 
-    driver = browser_setup(browser, device, headless, process_number, DRIVER)
+    driver = browser_setup(browser, device, headless, process_number)
     print(color_text(f"-- {process_number}: browser was correctly setup", "green"))
 
     # Mocking the Geolocation
@@ -259,7 +248,7 @@ def execute_browsing_flow(browser, source, device, consent_level, demo_input, he
     return temp_client_id
 
 def simulate_user(headless, demo_input, process_number):
-    global CLIENT_IDS_PATH, BASE_URL, MAX_CLIENT_IDS, SHORT_TIME, LONG_TIME, page_categories, product_categories, path_functions, GA_MEASUREMENT_ID, CHROME_DRIVER, FIREFOX_DRIVER, SCRIPT_PATH, ga_cookie_name
+    global CLIENT_IDS_PATH, BASE_URL, MAX_CLIENT_IDS, SHORT_TIME, LONG_TIME, page_categories, product_categories, path_functions, GA_MEASUREMENT_ID, SCRIPT_PATH, ga_cookie_name
     # Load demo_input.json
     with open("demo_input.json", 'r') as file:
         demo_input = json.load(file)
@@ -274,8 +263,6 @@ def simulate_user(headless, demo_input, process_number):
         product_categories = demo_input['product_categories']
         path_functions = demo_input['path_functions']
         GA_MEASUREMENT_ID = demo_input['GA_MEASUREMENT_ID']
-        CHROME_DRIVER = demo_input['CHROME_DRIVER']
-        FIREFOX_DRIVER = demo_input['FIREFOX_DRIVER']
         SCRIPT_PATH = demo_input['SCRIPT_PATH']
         ga_cookie_name = "_ga_"+GA_MEASUREMENT_ID
 
@@ -372,8 +359,6 @@ if __name__ == "__main__":
             product_categories = demo_input['product_categories']
             path_functions = demo_input['path_functions']
             GA_MEASUREMENT_ID = demo_input['GA_MEASUREMENT_ID']
-            CHROME_DRIVER = demo_input['CHROME_DRIVER']
-            FIREFOX_DRIVER = demo_input['FIREFOX_DRIVER']
             SCRIPT_PATH = demo_input['SCRIPT_PATH']
             SHORT_TIME = demo_input['SHORT_TIME']
             LONG_TIME = demo_input['LONG_TIME']
